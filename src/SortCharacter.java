@@ -13,23 +13,23 @@ public class SortCharacter {
     public static String sortedWord(String word) {
         String[] wordArr = convertWordToArray(word);
 
-        String result = "";
+        String data = "";
 
         for (int i = 0; i < wordArr.length; i++) {
+
+            if (data.length() == wordArr.length) break;
+
+            data += wordArr[i];
+
             for (int j = i + 1; j < wordArr.length; j++) {
                 if (wordArr[i].equals(wordArr[j])) {
-                    String temp = wordArr[i + 1];
-                    wordArr[i + 1] = wordArr[j];
-                    wordArr[j] = temp;
-
+                    data += wordArr[j];
                     break;
                 }
             }
-
-            result += wordArr[i];
         }
 
-        return result;
+        return data;
     }
 
     public static String procVowel(String param) {
